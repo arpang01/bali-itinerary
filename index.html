@@ -532,19 +532,66 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-        function downloadPDF() {
-            // Sembunyikan tombol download saat print
+        async function downloadPDF() {
             const downloadBtn = document.querySelector('.download-btn');
-            downloadBtn.style.display = 'none';
             
-            // Trigger print dialog
-            window.print();
+            // Ubah tombol jadi loading
+            const originalText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '📄 Generating PDF...';
+            downloadBtn.disabled = true;
             
-            // Tampilkan kembali tombol setelah print
-            setTimeout(() => {
+            try {
+                // Sembunyikan tombol sementara untuk screenshot
+                downloadBtn.style.display = 'none';
+                
+                // Capture halaman jadi canvas
+                const element = document.querySelector('.container');
+                const canvas = await html2canvas(element, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#ffffff'
+                });
+                
+                // Tampilkan tombol lagi
                 downloadBtn.style.display = 'block';
-            }, 1000);
+                
+                // Convert canvas ke PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 295; // A4 height in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                let heightLeft = imgHeight;
+                
+                let position = 0;
+                
+                // Add first page
+                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                
+                // Add additional pages if needed
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+                
+                // Download PDF
+                pdf.save('Bali-Itinerary-4D3N.pdf');
+                
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Maaf, ada error saat generate PDF. Coba refresh halaman dan coba lagi.');
+            }
+            
+            // Reset tombol
+            downloadBtn.innerHTML = originalText;
+            downloadBtn.disabled = false;
         }
         
         // Animasi untuk elemen yang masuk
