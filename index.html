@@ -25,12 +25,17 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
         }
         
         /* NEW HEADER STYLES */
@@ -41,7 +46,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 280px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -68,7 +73,7 @@
         
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
@@ -79,38 +84,10 @@
             animation: fadeIn 1s ease-out;
         }
 
-		.tip {
-            background: white;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            font-size: 0.85em;
-            border: 1px solid #e2e8f0;
-        }
-
-		.tip strong {
-            color: #e53e3e;
-            font-weight: 600;
-        }
-        
-        .download-btn {
-            background: linear-gradient(135deg, #2d3748, #4a5568);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-size: 0.95em;
-            font-weight: 500;
-            cursor: pointer;
-            margin: 15px auto;
-            display: block;
-            transition: all 0.2s ease;
-        }
-        
         .header-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 300;
             max-width: 600px;
             margin-left: auto;
@@ -131,58 +108,33 @@
             align-items: center;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(5px);
-            padding: 12px 20px;
+            padding: 15px 20px;
             border-radius: 15px;
-            min-width: 140px;
+            min-width: 150px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
         
         .detail-item:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .detail-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
         
         .detail-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.8;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
         
         .detail-value {
             font-weight: 600;
-            font-size: 1.05rem;
-        }
-        
-        .mobile-nav-toggle {
-            display: none;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            width: 45px;
-            height: 45px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        
-        .mobile-nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: white;
-            margin: 3px 0;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
         
         /* Animations */
@@ -201,160 +153,110 @@
             animation: float 5s ease-in-out infinite;
         }
         
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .header {
-                min-height: 240px;
-                border-radius: 15px 15px 0 0;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-                padding: 0 15px;
-            }
-            
-            .header-subtitle {
-                font-size: 0.95rem;
-                padding: 0 15px;
-            }
-            
-            .header-details {
-                gap: 10px;
-            }
-            
-            .detail-item {
-                padding: 10px 15px;
-                min-width: 110px;
-            }
-            
-            .detail-icon {
-                font-size: 1.5rem;
-            }
-            
-            .detail-value {
-                font-size: 0.9rem;
-            }
-            
-            .mobile-nav-toggle {
-                display: flex;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header {
-                min-height: 220px;
-            }
-            
-            .header h1 {
-                font-size: 1.7rem;
-            }
-            
-            .header-details {
-                flex-direction: column;
-                gap: 8px;
-                align-items: center;
-            }
-            
-            .detail-item {
-                width: 80%;
-                flex-direction: row;
-                justify-content: flex-start;
-                padding: 10px 15px;
-            }
-            
-            .detail-icon {
-                margin-bottom: 0;
-                margin-right: 10px;
-                font-size: 1.3rem;
-            }
-            
-            .detail-text {
-                text-align: left;
-            }
-        }
-        
-        /* Rest of your existing styles remain unchanged */
+        /* Content Styles */
         .content {
-            padding: 20px;
+            padding: 30px;
         }
         
         .day-section {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             background: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 25px;
             border: 1px solid #e2e8f0;
-            border-left: 4px solid;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .day1 { border-left-color: #e53e3e; }
-        .day2 { border-left-color: #3182ce; }
-        .day3 { border-left-color: #38a169; }
-        .day4 { border-left-color: #805ad5; }
+        .day-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+        
+        .day-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .day1::before { background: linear-gradient(to bottom, #e53e3e, #fc8181); }
+        .day2::before { background: linear-gradient(to bottom, #3182ce, #90cdf4); }
+        .day3::before { background: linear-gradient(to bottom, #38a169, #68d391); }
+        .day4::before { background: linear-gradient(to bottom, #805ad5, #b794f4); }
         
         .day-header {
             display: flex;
             align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
             border-bottom: 1px solid #e2e8f0;
         }
         
         .day-number {
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: 700;
-            margin-right: 12px;
-            opacity: 0.4;
+            margin-right: 15px;
+            opacity: 0.2;
             color: #2d3748;
-            min-width: 40px;
+            min-width: 50px;
         }
         
         .day-title h2 {
-            font-size: 1.3em;
+            font-size: 1.5em;
             font-weight: 600;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
             color: #1a202c;
         }
         
         .day-subtitle {
             color: #718096;
-            font-size: 0.9em;
+            font-size: 1em;
             font-weight: 400;
         }
         
         .activity {
-            margin-bottom: 14px;
-            padding: 14px;
+            margin-bottom: 20px;
+            padding: 18px;
             background: #f7fafc;
-            border-radius: 8px;
-            border-left: 3px solid #cbd5e0;
+            border-radius: 12px;
+            border-left: 4px solid #cbd5e0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .activity:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .activity h3 {
             color: #2d3748;
-            margin-bottom: 8px;
-            font-size: 1em;
+            margin-bottom: 12px;
+            font-size: 1.1em;
             display: flex;
             align-items: center;
             font-weight: 500;
         }
         
         .activity h3 span {
-            margin-right: 8px;
-            font-size: 1.1em;
+            margin-right: 10px;
+            font-size: 1.3em;
         }
         
         .activity ul {
             list-style: none;
-            margin-left: 12px;
+            margin-left: 15px;
         }
         
         .activity li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             position: relative;
-            padding-left: 12px;
-            font-size: 0.9em;
+            padding-left: 20px;
+            font-size: 0.95em;
             color: #4a5568;
         }
         
@@ -364,148 +266,201 @@
             left: 0;
             color: #a0aec0;
             font-weight: bold;
+            font-size: 1.2em;
         }
         
         .highlight {
             background: #fffaf0;
-            padding: 10px;
-            border-radius: 6px;
-            border-left: 3px solid #ed8936;
-            margin: 10px 0;
-            font-size: 0.85em;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ed8936;
+            margin: 15px 0;
+            font-size: 0.9em;
+            display: flex;
+            align-items: flex-start;
         }
         
         .highlight strong {
             color: #c05621;
-        }
-
-		.download-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(45, 55, 72, 0.25);
-        }
-        
-        .download-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
+            margin-right: 5px;
         }
         
         .accommodation {
-            background: #edf2f7;
-            padding: 8px;
-            border-radius: 6px;
-            margin-top: 8px;
+            background: linear-gradient(to right, #edf2f7, #e2e8f0);
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
             text-align: center;
-            font-size: 0.85em;
+            font-size: 0.9em;
+            border: 1px solid #cbd5e0;
+            font-weight: 500;
+        }
+        
+        .tip {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
             border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.2s ease;
         }
         
-        .accommodation strong {
-            color: #2d3748;
+        .tip:hover {
+            transform: translateY(-3px);
+        }
+        
+        .tip strong {
+            color: #e53e3e;
             font-weight: 600;
+            margin-right: 5px;
         }
         
-        /* Mobile optimizations */
+        .tip-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #4299e1;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 30px auto 10px;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(45, 55, 72, 0.2);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 55, 72, 0.3);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Responsive styles */
         @media (max-width: 768px) {
-            body {
-                padding: 8px;
-            }
-            
-            .container {
-                border-radius: 8px;
-            }
-            
             .header {
-                padding: 20px 15px;
+                min-height: 280px;
             }
             
             .header h1 {
-                font-size: 1.8em;
+                font-size: 2.2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem;
+            }
+            
+            .header-details {
+                gap: 10px;
+            }
+            
+            .detail-item {
+                padding: 12px 15px;
+                min-width: 130px;
+            }
+            
+            .detail-icon {
+                font-size: 1.7rem;
+            }
+            
+            .detail-value {
+                font-size: 1rem;
             }
             
             .content {
-                padding: 15px;
+                padding: 20px;
             }
             
             .day-section {
-                padding: 15px;
+                padding: 20px;
             }
             
             .day-number {
-                font-size: 1.5em;
-                min-width: 30px;
+                font-size: 2rem;
             }
             
             .day-title h2 {
-                font-size: 1.1em;
-            }
-            
-            .map-placeholder {
-                height: 100px;
-            }
-            
-            .island-emoji {
-                font-size: 2em !important;
-            }
-            
-            .island-name {
-                font-size: 0.8em !important;
-            }
-            
-            .journey-timeline {
-                max-width: 100%;
-            }
-            
-            .location-card {
-                padding: 10px;
-            }
-            
-            .location-icon {
-                font-size: 1.5em;
-                margin-right: 10px;
-            }
-            
-            .location-name {
-                font-size: 0.9em;
-            }
-            
-            .location-time {
-                font-size: 0.75em;
-            }
-            
-            .timeline-connector {
-                height: 15px;
+                font-size: 1.3rem;
             }
         }
         
+        @media (max-width: 480px) {
+            .header {
+                min-height: 250px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-details {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .detail-item {
+                width: 100%;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 12px 15px;
+            }
+            
+            .detail-icon {
+                margin-bottom: 0;
+                margin-right: 15px;
+                font-size: 1.5rem;
+            }
+            
+            .day-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .day-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Print styles */
         @media print {
             body {
                 background: none;
                 padding: 0;
             }
+            
             .container {
                 box-shadow: none;
                 border-radius: 0;
                 max-width: none;
             }
+            
             .download-btn {
                 display: none !important;
             }
+            
+            .day-section {
+                break-inside: avoid;
+            }
         }
-        
-        /* Rest of your CSS remains the same */
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- NEW HEADER -->
         <div class="header">
-            <div class="mobile-nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
             <div class="header-content">
                 <h1 class="floating">🌴 Bali Adventure 🌺</h1>
                 <p class="header-subtitle">Melali dibali dilangsungin aja ya geyzt</p>
@@ -535,19 +490,17 @@
                         </div>
                     </div>
 
-					 <div class="detail-item">
+                    <div class="detail-item">
                         <div class="detail-icon">✈️</div>
                         <div class="detail-text">
                             <div class="detail-label">PENERBANGAN BERANGKAT</div>
                             <div class="detail-value">Sabtu 15:45 (JKT)</div>
                         </div>
                     </div>
-					
                 </div>
             </div>
         </div>
         
-        <!-- Rest of your content remains the same -->
         <div class="content">
             <div class="day-section day1">
                 <div class="day-header">
@@ -591,7 +544,7 @@
                     <strong>🛌 Menginap di Ubud</strong>
                 </div>
             </div>
-			
+            
             <div class="day-section day2">
                 <div class="day-header">
                     <div class="day-number">2</div>
@@ -730,70 +683,90 @@
             </div>
             
             <div class="tips-section">
-                <h2>📌 Tips Penting & Catatan</h2>
+                <h2 style="margin-bottom: 20px; color: #2d3748; display: flex; align-items: center;">
+                    <span style="margin-right: 10px;">📌</span> Tips Penting & Catatan
+                </h2>
                 
                 <div class="tip">
-                    <strong>🚗 Transportasi:</strong> Sangat disarankan menyewa driver penuh-hari untuk Hari Senin. Ini akan menghemat tenaga dan waktu yang berharga.
+                    <div class="tip-icon">🚗</div>
+                    <div>
+                        <strong>Transportasi:</strong> Sangat disarankan menyewa driver penuh-hari untuk Hari Senin. Ini akan menghemat tenaga dan waktu yang berharga.
+                    </div>
                 </div>
                 
                 <div class="tip">
-                    <strong>🍽️ El Lago:</strong> WAJIB melakukan reservasi online sebelumnya untuk mendapatkan meja dengan view terbaik.
+                    <div class="tip-icon">🍽️</div>
+                    <div>
+                        <strong>El Lago:</strong> WAJIB melakukan reservasi online sebelumnya untuk mendapatkan meja dengan view terbaik.
+                    </div>
                 </div>
                 
                 <div class="tip">
-                    <strong>🏝️ Nusa Penida:</strong> Booking tiket kapal pulang-pergi Sanur-Penida online sebelumnya. Siapkan obat mabuk perjalanan.
+                    <div class="tip-icon">🏝️</div>
+                    <div>
+                        <strong>Nusa Penida:</strong> Booking tiket kapal pulang-pergi Sanur-Penida online sebelumnya. Siapkan obat mabuk perjalanan.
+                    </div>
                 </div>
                 
                 <div class="tip">
-                    <strong>⏰ Waktu:</strong> Selalu buffer waktu perjalanan lebih longgar. Lalu lintas di Bali sangat tidak terduga.
+                    <div class="tip-icon">⏰</div>
+                    <div>
+                        <strong>Waktu:</strong> Selalu buffer waktu perjalanan lebih longgar. Lalu lintas di Bali sangat tidak terduga.
+                    </div>
                 </div>
                 
                 <div class="tip">
-                    <strong>✈️ Bandara:</strong> Pastikan tiba di bandara minimal 2 jam sebelum penerbangan internasional.
+                    <div class="tip-icon">✈️</div>
+                    <div>
+                        <strong>Bandara:</strong> Pastikan tiba di bandara minimal 2 jam sebelum penerbangan internasional.
+                    </div>
                 </div>
             </div>
             
             <button class="download-btn" onclick="window.print()" id="downloadBtn">
-                🖨️ Print Itinerary
+                <i class="fas fa-print"></i> Print Itinerary
             </button>
         </div>
     </div>
 
     <script>
-        // Simple print function
-        function printItinerary() {
-            window.print();
-        }
-        
         // Add some interactive effects
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click animation to location cards
-            const locationCards = document.querySelectorAll('.location-card');
-            locationCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+            // Add hover animation to day sections
+            const daySections = document.querySelectorAll('.day-section');
+            daySections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
                 });
             });
             
-            // Animate timeline on scroll
+            // Add animation to tips on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateX(0)';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            });
+            }, observerOptions);
             
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(-20px)';
-                item.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(item);
+            const tips = document.querySelectorAll('.tip');
+            tips.forEach((tip, index) => {
+                tip.style.opacity = '0';
+                tip.style.transform = 'translateY(20px)';
+                tip.style.transition = `all 0.5s ease ${index * 0.1}s`;
+                observer.observe(tip);
             });
         });
     </script>
