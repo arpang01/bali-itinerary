@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bali Itinerary - 4 Days 3 Nights</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -14,128 +14,103 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: #f8f9fa;
+            color: #1a202c;
+            background: #f7fafc;
             min-height: 100vh;
-            padding: 10px;
+            padding: 15px;
         }
         
         .container {
-            max-width: 210mm;
+            max-width: 800px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
         }
         
         .header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #1a365d, #2c5282);
             color: white;
-            padding: 25px;
+            padding: 30px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="palm" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.1)">🌴</text></pattern></defs><rect width="100" height="100" fill="url(%23palm)"/></svg>');
-            animation: drift 20s linear infinite;
-        }
-        
-        @keyframes drift {
-            0% { transform: translateX(-50px); }
-            100% { transform: translateX(50px); }
         }
         
         .header h1 {
-            font-size: 2.5em;
-            font-weight: 600;
+            font-size: 2.2em;
+            font-weight: 700;
             margin-bottom: 8px;
-            position: relative;
-            z-index: 2;
+            letter-spacing: -0.5px;
         }
         
         .header p {
-            font-size: 1em;
-            position: relative;
-            z-index: 2;
+            font-size: 0.95em;
             opacity: 0.9;
+            font-weight: 400;
         }
         
         .content {
-            padding: 25px;
+            padding: 20px;
         }
         
         .day-section {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             background: #ffffff;
             border-radius: 8px;
             padding: 20px;
-            position: relative;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e2e8f0;
             border-left: 4px solid;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
-        .day1 { border-left-color: #e74c3c; }
-        .day2 { border-left-color: #3498db; }
-        .day3 { border-left-color: #2ecc71; }
-        .day4 { border-left-color: #9b59b6; }
+        .day1 { border-left-color: #e53e3e; }
+        .day2 { border-left-color: #3182ce; }
+        .day3 { border-left-color: #38a169; }
+        .day4 { border-left-color: #805ad5; }
         
         .day-header {
             display: flex;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             padding-bottom: 12px;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid #e2e8f0;
         }
         
         .day-number {
-            font-size: 2.2em;
+            font-size: 2em;
             font-weight: 700;
-            margin-right: 15px;
+            margin-right: 12px;
             opacity: 0.4;
-            color: #34495e;
-        }
-        
-        .day-title {
-            flex: 1;
+            color: #2d3748;
+            min-width: 40px;
         }
         
         .day-title h2 {
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: 600;
-            margin-bottom: 3px;
-            color: #2c3e50;
+            margin-bottom: 2px;
+            color: #1a202c;
         }
         
         .day-subtitle {
-            color: #7f8c8d;
-            font-size: 0.95em;
+            color: #718096;
+            font-size: 0.9em;
+            font-weight: 400;
         }
         
         .activity {
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #fdfdfd;
+            margin-bottom: 14px;
+            padding: 14px;
+            background: #f7fafc;
             border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-            border-left: 3px solid #bdc3c7;
+            border-left: 3px solid #cbd5e0;
         }
         
         .activity h3 {
-            color: #2c3e50;
+            color: #2d3748;
             margin-bottom: 8px;
-            font-size: 1.1em;
+            font-size: 1em;
             display: flex;
             align-items: center;
             font-weight: 500;
@@ -143,66 +118,71 @@
         
         .activity h3 span {
             margin-right: 8px;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         
         .activity ul {
             list-style: none;
-            margin-left: 15px;
+            margin-left: 12px;
         }
         
         .activity li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             position: relative;
-            padding-left: 15px;
-            font-size: 0.95em;
+            padding-left: 12px;
+            font-size: 0.9em;
+            color: #4a5568;
         }
         
         .activity li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: #7f8c8d;
+            color: #a0aec0;
             font-weight: bold;
         }
         
         .highlight {
-            background: #fff3cd;
-            padding: 12px;
+            background: #fffaf0;
+            padding: 10px;
             border-radius: 6px;
-            border-left: 3px solid #f39c12;
-            margin: 12px 0;
-            font-size: 0.9em;
+            border-left: 3px solid #ed8936;
+            margin: 10px 0;
+            font-size: 0.85em;
+        }
+        
+        .highlight strong {
+            color: #c05621;
         }
         
         .map-section {
-            background: #f8f9fa;
+            background: #f7fafc;
             border-radius: 8px;
             padding: 20px;
             margin: 20px 0;
             text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .map-section h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
         }
         
         .map-placeholder {
             width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #34495e, #2c3e50);
+            height: 200px;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2em;
+            font-size: 1em;
             margin-bottom: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .map-placeholder::before {
-            content: '🗺️';
-            font-size: 4em;
-            opacity: 0.3;
-            position: absolute;
+            font-weight: 500;
         }
         
         .route {
@@ -210,37 +190,38 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 15px;
         }
         
         .location {
             background: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            padding: 6px 10px;
+            border-radius: 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
             font-weight: 500;
-            font-size: 0.85em;
-            color: #34495e;
+            font-size: 0.8em;
+            color: #2d3748;
+            border: 1px solid #e2e8f0;
         }
         
         .arrow {
-            color: #95a5a6;
-            font-size: 1.2em;
+            color: #a0aec0;
+            font-size: 1em;
         }
         
         .tips-section {
-            background: #f8f9fa;
+            background: #f7fafc;
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e2e8f0;
         }
         
         .tips-section h2 {
-            color: #2c3e50;
+            color: #2d3748;
             margin-bottom: 15px;
-            font-size: 1.4em;
+            font-size: 1.3em;
             text-align: center;
             font-weight: 600;
         }
@@ -249,45 +230,104 @@
             background: white;
             padding: 12px;
             border-radius: 6px;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-            font-size: 0.9em;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            border: 1px solid #e2e8f0;
         }
         
         .tip strong {
-            color: #e74c3c;
+            color: #e53e3e;
+            font-weight: 600;
         }
         
         .download-btn {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, #2d3748, #4a5568);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 12px 24px;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 0.95em;
             font-weight: 500;
             cursor: pointer;
             margin: 15px auto;
             display: block;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .download-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+            box-shadow: 0 4px 12px rgba(45, 55, 72, 0.25);
+        }
+        
+        .download-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
         
         .accommodation {
-            background: #ecf0f1;
-            padding: 10px;
+            background: #edf2f7;
+            padding: 8px;
             border-radius: 6px;
-            margin-top: 10px;
+            margin-top: 8px;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            border: 1px solid #e2e8f0;
         }
         
         .accommodation strong {
-            color: #2c3e50;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+            }
+            
+            .container {
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .day-section {
+                padding: 15px;
+            }
+            
+            .day-number {
+                font-size: 1.5em;
+                min-width: 30px;
+            }
+            
+            .day-title h2 {
+                font-size: 1.1em;
+            }
+            
+            .route {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .location {
+                font-size: 0.75em;
+            }
+            
+            .map-placeholder {
+                height: 150px;
+                font-size: 0.9em;
+            }
         }
         
         @media print {
@@ -298,9 +338,10 @@
             .container {
                 box-shadow: none;
                 border-radius: 0;
+                max-width: none;
             }
             .download-btn {
-                display: none;
+                display: none !important;
             }
         }
     </style>
@@ -317,7 +358,7 @@
             <div class="map-section">
                 <h2>🗺️ Peta Perjalanan Bali</h2>
                 <div class="map-placeholder">
-                    <div>Rute Lengkap Bali Itinerary</div>
+                    Rute Lengkap Bali Itinerary
                 </div>
                 <div class="route">
                     <div class="location">🍽️ Gigi Susu</div>
@@ -538,7 +579,7 @@
                 </div>
             </div>
             
-            <button class="download-btn" onclick="downloadPDF()">
+            <button class="download-btn" onclick="downloadPDF()" id="downloadBtn">
                 📄 Download PDF Itinerary
             </button>
         </div>
@@ -547,107 +588,133 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
+        // Check if device supports PDF generation
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        
+        function fallbackToPrint() {
+            const downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.innerHTML = '🖨️ Print to PDF';
+            downloadBtn.onclick = function() {
+                window.print();
+            };
+        }
+        
         async function downloadPDF() {
-            const downloadBtn = document.querySelector('.download-btn');
+            // Fallback untuk mobile
+            if (isMobileDevice()) {
+                window.print();
+                return;
+            }
             
-            // Ubah tombol jadi loading
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            // Loading state
             const originalText = downloadBtn.innerHTML;
-            downloadBtn.innerHTML = '📄 Generating PDF...';
+            downloadBtn.innerHTML = '⏳ Generating PDF...';
             downloadBtn.disabled = true;
             
             try {
-                // Sembunyikan tombol sementara untuk screenshot
                 downloadBtn.style.display = 'none';
                 
-                // Capture halaman jadi canvas dengan setting yang dioptimasi
-                const element = document.querySelector('.container');
-                const canvas = await html2canvas(element, {
-                    scale: 1.5, // Naikin dikit biar lebih crisp
+                // Capture full container sebagai satu kesatuan
+                const container = document.querySelector('.container');
+                
+                // Temporary adjust container for better PDF layout
+                const originalMaxWidth = container.style.maxWidth;
+                container.style.maxWidth = '210mm';
+                container.style.width = '210mm';
+                
+                const canvas = await html2canvas(container, {
+                    scale: 2,
                     useCORS: true,
                     backgroundColor: '#ffffff',
                     logging: false,
                     allowTaint: true,
-                    height: element.scrollHeight, // Pastikan capture full height
-                    windowWidth: 1200,
-                    windowHeight: element.scrollHeight
+                    width: 794, // A4 width in pixels at 96 DPI
+                    height: container.scrollHeight,
+                    scrollX: 0,
+                    scrollY: 0
                 });
                 
-                // Tampilkan tombol lagi
+                // Restore original styling
+                container.style.maxWidth = originalMaxWidth;
+                container.style.width = '';
+                
                 downloadBtn.style.display = 'block';
                 
-                // Convert canvas ke PDF dengan better page handling
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF('p', 'mm', 'a4');
                 
-                const pdfWidth = 210; // A4 width
-                const pdfHeight = 297; // A4 height
+                const pdfWidth = 210;
+                const pdfHeight = 297;
                 const canvasWidth = canvas.width;
                 const canvasHeight = canvas.height;
                 
-                // Calculate scaling
+                // Calculate how much content fits per page
                 const ratio = pdfWidth / canvasWidth;
-                const scaledHeight = canvasHeight * ratio;
+                const contentHeight = canvasHeight * ratio;
                 
-                // If content fits in one page
-                if (scaledHeight <= pdfHeight) {
-                    const imgData = canvas.toDataURL('image/jpeg', 0.8);
-                    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, scaledHeight);
+                if (contentHeight <= pdfHeight) {
+                    // Single page
+                    const imgData = canvas.toDataURL('image/jpeg', 0.85);
+                    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, contentHeight);
                 } else {
-                    // Multiple pages with better breaks
-                    const pageHeight = pdfHeight;
-                    const totalPages = Math.ceil(scaledHeight / pageHeight);
+                    // Multiple pages - split at natural boundaries
+                    const pageContentHeight = pdfHeight - 10; // Leave margin
+                    const pagesNeeded = Math.ceil(contentHeight / pageContentHeight);
                     
-                    for (let i = 0; i < totalPages; i++) {
-                        if (i > 0) pdf.addPage();
+                    for (let page = 0; page < pagesNeeded; page++) {
+                        if (page > 0) {
+                            pdf.addPage();
+                        }
                         
-                        // Create canvas for this page
+                        // Calculate source area for this page
+                        const sourceY = (page * pageContentHeight) / ratio;
+                        const sourceHeight = Math.min(pageContentHeight / ratio, canvasHeight - sourceY);
+                        
+                        // Create temporary canvas for this page
                         const pageCanvas = document.createElement('canvas');
-                        const pageCtx = pageCanvas.getContext('2d');
-                        
-                        const sourceY = (i * pageHeight) / ratio;
-                        const sourceHeight = Math.min(pageHeight / ratio, canvasHeight - sourceY);
-                        
+                        const ctx = pageCanvas.getContext('2d');
                         pageCanvas.width = canvasWidth;
                         pageCanvas.height = sourceHeight;
                         
-                        // Draw portion of original canvas
-                        pageCtx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
+                        // Clear canvas with white background
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvasWidth, sourceHeight);
                         
-                        const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.8);
-                        pdf.addImage(pageImgData, 'JPEG', 0, 0, pdfWidth, sourceHeight * ratio);
+                        // Draw the portion of original canvas
+                        ctx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
+                        
+                        const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.85);
+                        const pageHeight = sourceHeight * ratio;
+                        
+                        pdf.addImage(pageImgData, 'JPEG', 0, 5, pdfWidth, pageHeight);
                     }
                 }
                 
-                // Download PDF
                 pdf.save('Bali-Itinerary-4D3N.pdf');
                 
             } catch (error) {
                 console.error('Error generating PDF:', error);
-                alert('Maaf, ada error saat generate PDF. Coba refresh halaman dan coba lagi.');
+                alert('Terjadi error. Coba gunakan Print to PDF sebagai alternatif.');
+                window.print();
             }
             
-            // Reset tombol
+            // Reset button
             downloadBtn.innerHTML = originalText;
             downloadBtn.disabled = false;
         }
         
-        // Animasi untuk elemen yang masuk
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.day-section');
-            elements.forEach((element, index) => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(50px)';
-                element.style.transition = 'all 0.6s ease';
-                
-                setTimeout(() => {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        }
-        
-        // Jalankan animasi saat halaman dimuat
-        window.addEventListener('load', animateOnScroll);
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if libraries loaded properly
+            if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
+                console.warn('PDF libraries not loaded, falling back to print');
+                fallbackToPrint();
+            }
+        });
     </script>
 </body>
 </html>
