@@ -562,40 +562,60 @@
                 // Capture halaman jadi canvas dengan setting yang dioptimasi
                 const element = document.querySelector('.container');
                 const canvas = await html2canvas(element, {
-                    scale: 1.2, // Turunin dari 2 ke 1.2 biar lebih kecil
+                    scale: 1.5, // Naikin dikit biar lebih crisp
                     useCORS: true,
                     backgroundColor: '#ffffff',
                     logging: false,
-                    allowTaint: true
+                    allowTaint: true,
+                    height: element.scrollHeight, // Pastikan capture full height
+                    windowWidth: 1200,
+                    windowHeight: element.scrollHeight
                 });
                 
                 // Tampilkan tombol lagi
                 downloadBtn.style.display = 'block';
                 
-                // Convert canvas ke PDF dengan compression
+                // Convert canvas ke PDF dengan better page handling
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF('p', 'mm', 'a4');
                 
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 295; // A4 height in mm
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                let heightLeft = imgHeight;
+                const pdfWidth = 210; // A4 width
+                const pdfHeight = 297; // A4 height
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
                 
-                let position = 0;
+                // Calculate scaling
+                const ratio = pdfWidth / canvasWidth;
+                const scaledHeight = canvasHeight * ratio;
                 
-                // Compress image quality untuk ukuran file lebih kecil
-                const imgData = canvas.toDataURL('image/jpeg', 0.7); // JPEG dengan quality 70%
-                
-                // Add first page
-                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-                
-                // Add additional pages if needed
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    pdf.addPage();
-                    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
+                // If content fits in one page
+                if (scaledHeight <= pdfHeight) {
+                    const imgData = canvas.toDataURL('image/jpeg', 0.8);
+                    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, scaledHeight);
+                } else {
+                    // Multiple pages with better breaks
+                    const pageHeight = pdfHeight;
+                    const totalPages = Math.ceil(scaledHeight / pageHeight);
+                    
+                    for (let i = 0; i < totalPages; i++) {
+                        if (i > 0) pdf.addPage();
+                        
+                        // Create canvas for this page
+                        const pageCanvas = document.createElement('canvas');
+                        const pageCtx = pageCanvas.getContext('2d');
+                        
+                        const sourceY = (i * pageHeight) / ratio;
+                        const sourceHeight = Math.min(pageHeight / ratio, canvasHeight - sourceY);
+                        
+                        pageCanvas.width = canvasWidth;
+                        pageCanvas.height = sourceHeight;
+                        
+                        // Draw portion of original canvas
+                        pageCtx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
+                        
+                        const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.8);
+                        pdf.addImage(pageImgData, 'JPEG', 0, 0, pdfWidth, sourceHeight * ratio);
+                    }
                 }
                 
                 // Download PDF
