@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Itinerary - 4 Days 3 Nights</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="palm" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.1)">🌴</text></pattern></defs><rect width="100" height="100" fill="url(%23palm)"/></svg>');
+            animation: drift 20s linear infinite;
+        }
+        
+        @keyframes drift {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .day-section {
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            border-left: 8px solid;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .day1 { border-left-color: #ff6b6b; }
+        .day2 { border-left-color: #4ecdc4; }
+        .day3 { border-left-color: #45b7d1; }
+        .day4 { border-left-color: #96ceb4; }
+        
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .day-number {
+            font-size: 3em;
+            font-weight: 700;
+            margin-right: 20px;
+            opacity: 0.3;
+        }
+        
+        .day-title {
+            flex: 1;
+        }
+        
+        .day-title h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .day-subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .activity {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #ffa726;
+        }
+        
+        .activity h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .activity h3 span {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        .activity ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        .activity li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .activity li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ffa726;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #fff3cd, #ffeaa7);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+        }
+        
+        .map-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-placeholder::before {
+            content: '🗺️';
+            font-size: 4em;
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .route {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .location {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .arrow {
+            color: #666;
+            font-size: 1.5em;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .tips-section h2 {
+            color: #d63031;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        .tip {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tip strong {
+            color: #d63031;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .accommodation {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .accommodation strong {
+            color: #e17055;
+        }
+        
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .download-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌺 BALI ADVENTURE 🌺</h1>
+            <p>4 Hari 3 Malam | Minggu - Rabu</p>
+            <p>Penerbangan: Rabu 19:00 dari DPS</p>
+        </div>
+        
+        <div class="content">
+            <div class="map-section">
+                <h2>🗺️ Peta Perjalanan Bali</h2>
+                <div class="map-placeholder">
+                    <div>Rute Lengkap Bali Itinerary</div>
+                </div>
+                <div class="route">
+                    <div class="location">🍽️ Gigi Susu</div>
+                    <div class="arrow">→</div>
+                    <div class="location">⛰️ Kintamani</div>
+                    <div class="arrow">→</div>
+                    <div class="location">🐒 Ubud</div>
+                    <div class="arrow">→</div>
+                    <div class="location">🌅 Uluwatu</div>
+                    <div class="arrow">→</div>
+                    <div class="location">🏝️ Nusa Penida</div>
+                    <div class="arrow">→</div>
+                    <div class="location">✈️ Airport</div>
+                </div>
+            </div>
+            
+            <div class="day-section day1">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-title">
+                        <h2>📍 Hari 1: Minggu | Ubud Culture & Chill</h2>
+                        <div class="day-subtitle">Budaya & Relaksasi</div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>☀️</span>Pagi (07:00 - 09:00)</h3>
+                    <ul>
+                        <li>Sarapan di <strong>Gigi Susu</strong></li>
+                        <li>Target selesai sekitar jam 9 pagi</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>⛰️</span>Siang & Sore (09:00 - 17:00)</h3>
+                    <ul>
+                        <li><strong>Perjalanan ke Kintamani</strong> (≈1.5 jam)</li>
+                        <li><strong>Makan Siang di El Lago</strong> dengan view Danau Batur</li>
+                        <li><strong>Turun ke Ubud</strong> (≈1 jam)</li>
+                        <li><strong>Eksplor Ubud:</strong> Monkey Forest, Pasar Seni, atau Tegenungan Waterfall</li>
+                    </ul>
+                    <div class="highlight">
+                        ⚠️ <strong>PENTING:</strong> WAJIB RESERVASI El Lago untuk view terbaik!
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌙</span>Malam (19:00 onwards)</h3>
+                    <ul>
+                        <li>Makan malam cozy di Ubud</li>
+                        <li>Nikmati suasana Ubud yang tenang</li>
+                    </ul>
+                </div>
+                
+                <div class="accommodation">
+                    <strong>🛌 Menginap di Ubud</strong>
+                </div>
+            </div>
+            
+            <div class="day-section day2">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-title">
+                        <h2>🚗 Hari 2: Senin | Volcano Views & Sunset Cliffs</h2>
+                        <div class="day-subtitle">Gunung Berapi & Tebing Sunset</div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>☀️</span>Pagi (08:00 - 10:00)</h3>
+                    <ul>
+                        <li>Sarapan di Ubud</li>
+                        <li>Check-out dari penginapan</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌅</span>Siang (10:00 - 16:00)</h3>
+                    <ul>
+                        <li><strong>Perjalanan ke Uluwatu</strong> (≈2.5-3 jam, bisa macet)</li>
+                        <li><strong>Rekomendasi:</strong> Jelajahi Padang Padang Beach atau Suluban Beach</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌇</span>Sunset & Malam (17:00 - 20:00)</h3>
+                    <ul>
+                        <li>Kunjungi <strong>Pura Uluwatu</strong></li>
+                        <li>Nonton <strong>Tari Kecak</strong> (mulai jam 18:00)</li>
+                        <li>Main <strong>Game Ketapel</strong> di Suluban/Single Fin</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌙</span>Malam (20:30 onwards)</h3>
+                    <ul>
+                        <li><strong>Perjalanan ke Sanur/Jimbaran</strong> (≈1-1.5 jam)</li>
+                        <li>Check-in penginapan untuk istirahat</li>
+                    </ul>
+                </div>
+                
+                <div class="accommodation">
+                    <strong>🛌 Menginap di Sanur</strong> (direkomendasikan untuk akses pelabuhan)
+                </div>
+            </div>
+            
+            <div class="day-section day3">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-title">
+                        <h2>🏝️ Hari 3: Selasa | Nusa Penida Adventure</h2>
+                        <div class="day-subtitle">Petualangan Pulau</div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌅</span>Pagi Buta (06:30 - 07:30)</h3>
+                    <ul>
+                        <li>Berangkat ke <strong>Pelabuhan Sanur</strong></li>
+                        <li>Naik <strong>kapal pertama (≈07:30)</strong> ke Nusa Penida</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>☀️</span>Siang (08:30 - 16:00)</h3>
+                    <ul>
+                        <li><strong>Kelingking Beach</strong> (foto dari atas tebing)</li>
+                        <li><strong>Angel's Billabong & Broken Beach</strong></li>
+                        <li><strong>Crystal Bay</strong> (snorkeling/relaksasi)</li>
+                    </ul>
+                    <div class="highlight">
+                        💡 <strong>Saran:</strong> Sewa driver lokal di Penida untuk efisiensi
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌇</span>Sore (16:00 - 17:00)</h3>
+                    <ul>
+                        <li>Naik <strong>kapal terakhir</strong> kembali ke Pelabuhan Sanur</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🌙</span>Malam (18:00 onwards)</h3>
+                    <ul>
+                        <li>Makan malam dan <strong>istirahat total</strong></li>
+                        <li>Hari ini sangat melelahkan</li>
+                    </ul>
+                </div>
+                
+                <div class="accommodation">
+                    <strong>🛌 Menginap di Sanur</strong>
+                </div>
+            </div>
+            
+            <div class="day-section day4">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-title">
+                        <h2>✈️ Hari 4: Rabu | Souvenirs & Flight Home</h2>
+                        <div class="day-subtitle">Belanja & Pulang</div>
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>☀️</span>Pagi (08:00 - 11:00)</h3>
+                    <ul>
+                        <li>Sarapan santai</li>
+                        <li>Packing dan check-out dari hotel</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🛍️</span>Siang (11:00 - 15:00)</h3>
+                    <ul>
+                        <li>Eksplor <strong>Seminyak/Canggu</strong> untuk beli oleh-oleh</li>
+                        <li>Cafe hopping dan makan siang</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>🚗</span>Sore (15:30 - 16:30)</h3>
+                    <ul>
+                        <li><strong>Perjalanan ke Bandara DPS</strong> (≈45-60 menit)</li>
+                    </ul>
+                </div>
+                
+                <div class="activity">
+                    <h3><span>✈️</span>Malam</h3>
+                    <ul>
+                        <li><strong>Tiba di bandara maksimal 17:00</strong> untuk penerbangan 19:00</li>
+                        <li>Check-in, beli oleh-oleh akhir, pulang!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tips-section">
+                <h2>📌 Tips Penting & Catatan</h2>
+                
+                <div class="tip">
+                    <strong>🚗 Transportasi:</strong> Sangat disarankan menyewa driver penuh-hari untuk Hari Senin. Ini akan menghemat tenaga dan waktu yang berharga.
+                </div>
+                
+                <div class="tip">
+                    <strong>🍽️ El Lago:</strong> WAJIB melakukan reservasi online sebelumnya untuk mendapatkan meja dengan view terbaik.
+                </div>
+                
+                <div class="tip">
+                    <strong>🏝️ Nusa Penida:</strong> Booking tiket kapal pulang-pergi Sanur-Penida online sebelumnya. Siapkan obat mabuk perjalanan.
+                </div>
+                
+                <div class="tip">
+                    <strong>⏰ Waktu:</strong> Selalu buffer waktu perjalanan lebih longgar. Lalu lintas di Bali sangat tidak terduga.
+                </div>
+                
+                <div class="tip">
+                    <strong>✈️ Bandara:</strong> Pastikan tiba di bandara minimal 2 jam sebelum penerbangan internasional.
+                </div>
+            </div>
+            
+            <button class="download-btn" onclick="downloadPDF()">
+                📄 Download PDF Itinerary
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // Sembunyikan tombol download saat print
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.style.display = 'none';
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Tampilkan kembali tombol setelah print
+            setTimeout(() => {
+                downloadBtn.style.display = 'block';
+            }, 1000);
+        }
+        
+        // Animasi untuk elemen yang masuk
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.day-section');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+        
+        // Jalankan animasi saat halaman dimuat
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
