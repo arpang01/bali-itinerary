@@ -315,18 +315,41 @@
                 font-size: 1.1em;
             }
             
-            .route {
-                flex-direction: column;
-                gap: 5px;
+            .map-placeholder {
+                height: 100px;
             }
             
-            .location {
+            .island-emoji {
+                font-size: 2em !important;
+            }
+            
+            .island-name {
+                font-size: 0.8em !important;
+            }
+            
+            .journey-timeline {
+                max-width: 100%;
+            }
+            
+            .location-card {
+                padding: 10px;
+            }
+            
+            .location-icon {
+                font-size: 1.5em;
+                margin-right: 10px;
+            }
+            
+            .location-name {
+                font-size: 0.9em;
+            }
+            
+            .location-time {
                 font-size: 0.75em;
             }
             
-            .map-placeholder {
-                height: 150px;
-                font-size: 0.9em;
+            .timeline-connector {
+                height: 15px;
             }
         }
         
@@ -356,22 +379,104 @@
         
         <div class="content">
             <div class="map-section">
-                <h2>🗺️ Peta Perjalanan Bali</h2>
+                <h2>🗺️ Rute Perjalanan Bali</h2>
                 <div class="map-placeholder">
-                    Rute Lengkap Bali Itinerary
+                    <div class="map-content">
+                        <div class="island-outline">
+                            <span class="island-emoji">🏝️</span>
+                            <div class="island-name">BALI</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="route">
-                    <div class="location">🍽️ Gigi Susu</div>
-                    <div class="arrow">→</div>
-                    <div class="location">⛰️ Kintamani</div>
-                    <div class="arrow">→</div>
-                    <div class="location">🐒 Ubud</div>
-                    <div class="arrow">→</div>
-                    <div class="location">🌅 Uluwatu</div>
-                    <div class="arrow">→</div>
-                    <div class="location">🏝️ Nusa Penida</div>
-                    <div class="arrow">→</div>
-                    <div class="location">✈️ Airport</div>
+                
+                <div class="journey-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot day1-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">🍽️</span>
+                                <div class="location-info">
+                                    <div class="location-name">Gigi Susu</div>
+                                    <div class="location-time">07:00 - 09:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot day1-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">⛰️</span>
+                                <div class="location-info">
+                                    <div class="location-name">Kintamani & El Lago</div>
+                                    <div class="location-time">09:00 - 15:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot day1-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">🐒</span>
+                                <div class="location-info">
+                                    <div class="location-name">Ubud Exploration</div>
+                                    <div class="location-time">15:00 - Night</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot day2-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">🌅</span>
+                                <div class="location-info">
+                                    <div class="location-name">Uluwatu & Kecak</div>
+                                    <div class="location-time">Day 2 - Sunset</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot day3-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">🏝️</span>
+                                <div class="location-info">
+                                    <div class="location-name">Nusa Penida</div>
+                                    <div class="location-time">Day 3 - Full Day</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-connector"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot day4-dot"></div>
+                        <div class="timeline-content">
+                            <div class="location-card">
+                                <span class="location-icon">✈️</span>
+                                <div class="location-info">
+                                    <div class="location-name">Airport Departure</div>
+                                    <div class="location-time">19:00 Flight</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -579,141 +684,48 @@
                 </div>
             </div>
             
-            <button class="download-btn" onclick="downloadPDF()" id="downloadBtn">
-                📄 Download PDF Itinerary
+            <button class="download-btn" onclick="window.print()" id="downloadBtn">
+                🖨️ Print Itinerary
             </button>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-        // Check if device supports PDF generation
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // Simple print function
+        function printItinerary() {
+            window.print();
         }
         
-        function fallbackToPrint() {
-            const downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.innerHTML = '🖨️ Print to PDF';
-            downloadBtn.onclick = function() {
-                window.print();
-            };
-        }
-        
-        async function downloadPDF() {
-            // Fallback untuk mobile
-            if (isMobileDevice()) {
-                window.print();
-                return;
-            }
-            
-            const downloadBtn = document.getElementById('downloadBtn');
-            
-            // Loading state
-            const originalText = downloadBtn.innerHTML;
-            downloadBtn.innerHTML = '⏳ Generating PDF...';
-            downloadBtn.disabled = true;
-            
-            try {
-                downloadBtn.style.display = 'none';
-                
-                // Capture full container sebagai satu kesatuan
-                const container = document.querySelector('.container');
-                
-                // Temporary adjust container for better PDF layout
-                const originalMaxWidth = container.style.maxWidth;
-                container.style.maxWidth = '210mm';
-                container.style.width = '210mm';
-                
-                const canvas = await html2canvas(container, {
-                    scale: 2,
-                    useCORS: true,
-                    backgroundColor: '#ffffff',
-                    logging: false,
-                    allowTaint: true,
-                    width: 794, // A4 width in pixels at 96 DPI
-                    height: container.scrollHeight,
-                    scrollX: 0,
-                    scrollY: 0
-                });
-                
-                // Restore original styling
-                container.style.maxWidth = originalMaxWidth;
-                container.style.width = '';
-                
-                downloadBtn.style.display = 'block';
-                
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                
-                const pdfWidth = 210;
-                const pdfHeight = 297;
-                const canvasWidth = canvas.width;
-                const canvasHeight = canvas.height;
-                
-                // Calculate how much content fits per page
-                const ratio = pdfWidth / canvasWidth;
-                const contentHeight = canvasHeight * ratio;
-                
-                if (contentHeight <= pdfHeight) {
-                    // Single page
-                    const imgData = canvas.toDataURL('image/jpeg', 0.85);
-                    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, contentHeight);
-                } else {
-                    // Multiple pages - split at natural boundaries
-                    const pageContentHeight = pdfHeight - 10; // Leave margin
-                    const pagesNeeded = Math.ceil(contentHeight / pageContentHeight);
-                    
-                    for (let page = 0; page < pagesNeeded; page++) {
-                        if (page > 0) {
-                            pdf.addPage();
-                        }
-                        
-                        // Calculate source area for this page
-                        const sourceY = (page * pageContentHeight) / ratio;
-                        const sourceHeight = Math.min(pageContentHeight / ratio, canvasHeight - sourceY);
-                        
-                        // Create temporary canvas for this page
-                        const pageCanvas = document.createElement('canvas');
-                        const ctx = pageCanvas.getContext('2d');
-                        pageCanvas.width = canvasWidth;
-                        pageCanvas.height = sourceHeight;
-                        
-                        // Clear canvas with white background
-                        ctx.fillStyle = '#ffffff';
-                        ctx.fillRect(0, 0, canvasWidth, sourceHeight);
-                        
-                        // Draw the portion of original canvas
-                        ctx.drawImage(canvas, 0, sourceY, canvasWidth, sourceHeight, 0, 0, canvasWidth, sourceHeight);
-                        
-                        const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.85);
-                        const pageHeight = sourceHeight * ratio;
-                        
-                        pdf.addImage(pageImgData, 'JPEG', 0, 5, pdfWidth, pageHeight);
-                    }
-                }
-                
-                pdf.save('Bali-Itinerary-4D3N.pdf');
-                
-            } catch (error) {
-                console.error('Error generating PDF:', error);
-                alert('Terjadi error. Coba gunakan Print to PDF sebagai alternatif.');
-                window.print();
-            }
-            
-            // Reset button
-            downloadBtn.innerHTML = originalText;
-            downloadBtn.disabled = false;
-        }
-        
-        // Initialize
+        // Add some interactive effects
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if libraries loaded properly
-            if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
-                console.warn('PDF libraries not loaded, falling back to print');
-                fallbackToPrint();
-            }
+            // Add click animation to location cards
+            const locationCards = document.querySelectorAll('.location-card');
+            locationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Animate timeline on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            });
+            
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
         });
     </script>
 </body>
