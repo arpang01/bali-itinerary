@@ -547,18 +547,20 @@
                 // Sembunyikan tombol sementara untuk screenshot
                 downloadBtn.style.display = 'none';
                 
-                // Capture halaman jadi canvas
+                // Capture halaman jadi canvas dengan setting yang dioptimasi
                 const element = document.querySelector('.container');
                 const canvas = await html2canvas(element, {
-                    scale: 2,
+                    scale: 1.2, // Turunin dari 2 ke 1.2 biar lebih kecil
                     useCORS: true,
-                    backgroundColor: '#ffffff'
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    allowTaint: true
                 });
                 
                 // Tampilkan tombol lagi
                 downloadBtn.style.display = 'block';
                 
-                // Convert canvas ke PDF
+                // Convert canvas ke PDF dengan compression
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF('p', 'mm', 'a4');
                 
@@ -569,15 +571,18 @@
                 
                 let position = 0;
                 
+                // Compress image quality untuk ukuran file lebih kecil
+                const imgData = canvas.toDataURL('image/jpeg', 0.7); // JPEG dengan quality 70%
+                
                 // Add first page
-                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
                 
                 // Add additional pages if needed
                 while (heightLeft >= 0) {
                     position = heightLeft - imgHeight;
                     pdf.addPage();
-                    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+                    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
                 
