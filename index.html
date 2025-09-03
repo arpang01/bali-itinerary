@@ -6,8 +6,8 @@
     <title>Bali Itinerary - 4 Days 3 Nights</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -15,148 +15,134 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f0f7ff;
+            --bg-tertiary: #e6f0ff;
+            --border-color: #d1e0ff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+        
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #e6f0ff 0%, #d1e0ff 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-lg);
         }
         
-        /* HEADER STYLES */
+        /* HEADER */
         .header {
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(44, 82, 130, 0.9) 50%, rgba(49, 130, 206, 0.9) 100%), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
             color: white;
-            padding: 0;
+            padding: 60px 40px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-            min-height: 380px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
         
-        .header-content {
-            position: relative;
-            z-index: 2;
-            padding: 50px 30px;
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
         
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            background: linear-gradient(to right, #fff 0%, #fdf5c9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease-out;
         }
-
+        
         .header-subtitle {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 35px;
-            font-weight: 300;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .header-details {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 35px;
-        }
-        
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 20px 25px;
-            border-radius: 20px;
-            min-width: 170px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .detail-item:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .detail-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .detail-label {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 8px;
-        }
-        
-        .detail-value {
-            font-weight: 600;
             font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
         
-        /* CONTENT STYLES */
+        .header-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-value {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        /* CONTENT */
         .content {
-            padding: 40px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(245, 247, 250, 0.3)"/><path d="M0 0L100 100" stroke="rgba(203, 213, 224, 0.2)" stroke-width="1"/><path d="M100 0L0 100" stroke="rgba(203, 213, 224, 0.2)" stroke-width="1"/></svg>');
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-            margin: 40px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 6px;
-            background: linear-gradient(to bottom, #e53e3e, #3182ce, #38a169, #805ad5);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 50px 40px;
+            background: var(--bg-secondary);
         }
         
         .day-section {
-            margin-bottom: 50px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            margin-bottom: 60px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
-            border-left: 8px solid;
         }
         
         .day-section::before {
@@ -164,232 +150,178 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(to right, transparent, rgba(0,0,0,0.05));
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
         }
         
-        .day-section::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+        .day-section:nth-child(2)::before { background: #ef4444; }
+        .day-section:nth-child(3)::before { background: var(--success-color); }
+        .day-section:nth-child(4)::before { background: #8b5cf6; }
+        .day-section:nth-child(5)::before { background: var(--warning-color); }
         
         .day-section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-        }
-        
-        .day-section:hover::after {
-            opacity: 1;
-        }
-        
-        .day1 { 
-            border-left-color: #e53e3e; 
-            background: linear-gradient(135deg, rgba(255, 245, 245, 0.9) 0%, rgba(254, 242, 242, 0.9) 100%);
-        }
-        
-        .day2 { 
-            border-left-color: #3182ce; 
-            background: linear-gradient(135deg, rgba(235, 248, 255, 0.9) 0%, rgba(240, 249, 255, 0.9) 100%);
-        }
-        
-        .day3 { 
-            border-left-color: #38a169; 
-            background: linear-gradient(135deg, rgba(240, 255, 244, 0.9) 0%, rgba(235, 250, 235, 0.9) 100%);
-        }
-        
-        .day4 { 
-            border-left-color: #805ad5; 
-            background: linear-gradient(135deg, rgba(250, 245, 255, 0.9) 0%, rgba(245, 240, 255, 0.9) 100%);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
         
         .day-header {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 2px dashed #e2e8f0;
         }
         
         .day-number {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-right: 25px;
-            opacity: 0.15;
-            color: #2d3748;
-            min-width: 70px;
-            text-align: center;
             font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 24px;
+            min-width: 60px;
         }
         
+        .day-section:nth-child(2) .day-number { color: #ef4444; }
+        .day-section:nth-child(3) .day-number { color: var(--success-color); }
+        .day-section:nth-child(4) .day-number { color: #8b5cf6; }
+        .day-section:nth-child(5) .day-number { color: var(--warning-color); }
+        
         .day-title h2 {
-            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #1a202c;
+            color: var(--text-primary);
         }
         
         .day-subtitle {
-            color: #718096;
-            font-size: 1.1em;
+            color: var(--text-secondary);
+            font-size: 1rem;
             font-weight: 400;
         }
         
         .time-blocks {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 25px;
+            gap: 20px;
         }
         
         .time-block {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 20px;
-            padding: 25px;
-            border-left: 6px solid;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(5px);
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: all 0.2s ease;
         }
         
         .time-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .morning { 
-            border-left-color: #f6ad55; 
-            background: linear-gradient(135deg, rgba(255, 250, 240, 0.8) 0%, rgba(254, 243, 221, 0.8) 100%);
-        }
-        
-        .afternoon { 
-            border-left-color: #4299e1; 
-            background: linear-gradient(135deg, rgba(235, 248, 255, 0.8) 0%, rgba(225, 239, 254, 0.8) 100%);
-        }
-        
-        .evening { 
-            border-left-color: #9f7aea; 
-            background: linear-gradient(135deg, rgba(250, 245, 255, 0.8) 0%, rgba(243, 232, 255, 0.8) 100%);
-        }
-        
-        .night { 
-            border-left-color: #4a5568; 
-            background: linear-gradient(135deg, rgba(247, 250, 252, 0.8) 0%, rgba(237, 242, 247, 0.8) 100%);
+            box-shadow: var(--shadow-sm);
         }
         
         .time-block h3 {
-            color: #2d3748;
-            margin-bottom: 20px;
-            font-size: 1.3em;
             display: flex;
             align-items: center;
-            font-weight: 500;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
         }
         
-        .time-block h3 span {
-            margin-right: 15px;
-            font-size: 1.6em;
+        .time-block h3 .time-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
         }
         
         .time-block ul {
             list-style: none;
-            margin-left: 8px;
         }
         
         .time-block li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            padding-left: 20px;
             position: relative;
-            padding-left: 30px;
-            font-size: 1em;
-            color: #4a5568;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
         
         .time-block li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: #a0aec0;
+            color: var(--primary-color);
             font-weight: bold;
-            font-size: 1.8em;
+        }
+        
+        .time-block li strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
         
         .highlight {
-            background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
-            padding: 22px;
-            border-radius: 16px;
-            border-left: 6px solid #ed8936;
-            margin: 25px 0;
-            font-size: 1em;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 24px 0;
             display: flex;
             align-items: flex-start;
-            box-shadow: 0 5px 15px rgba(237, 137, 54, 0.15);
+            gap: 12px;
+            animation: pulse 2s infinite;
         }
         
-        .highlight strong {
-            color: #c05621;
-            margin-right: 8px;
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+        
+        .highlight-icon {
+            color: var(--warning-color);
+            font-size: 1.2rem;
+            margin-top: 2px;
         }
         
         .accommodation {
-            background: linear-gradient(to right, #ebf4ff, #c6f6d5);
-            padding: 18px;
-            border-radius: 16px;
-            margin-top: 25px;
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-radius: var(--radius-md);
+            padding: 16px;
             text-align: center;
-            font-size: 1em;
-            border: 1px solid #cbd5e0;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 24px;
+            font-weight: 600;
+            color: #166534;
         }
         
         /* TIPS SECTION */
         .tips-section {
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 2px dashed #e2e8f0;
         }
         
         .tips-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
             margin-bottom: 30px;
-            color: #2d3748;
-            font-size: 2em;
+            color: var(--text-primary);
+            text-align: center;
             display: flex;
             align-items: center;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
             justify-content: center;
-        }
-        
-        .tips-section h2 span {
-            margin-right: 15px;
+            gap: 12px;
         }
         
         .tips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
         
         .tip {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-            padding: 28px;
-            border-radius: 20px;
-            font-size: 1em;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: flex-start;
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: 24px;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(5px);
+            opacity: 0;
+            transform: translateY(20px);
         }
         
         .tip::before {
@@ -397,532 +329,589 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 6px;
+            width: 5px;
             height: 100%;
-            background: #4299e1;
+            background: var(--primary-color);
         }
+        
+        .tip:nth-child(2)::before { background: #ef4444; }
+        .tip:nth-child(3)::before { background: var(--success-color); }
+        .tip:nth-child(4)::before { background: #8b5cf6; }
+        .tip:nth-child(5)::before { background: var(--warning-color); }
         
         .tip:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-lg);
         }
         
-        .tip strong {
-            color: #e53e3e;
-            font-weight: 600;
-            margin-right: 8px;
+        .tip-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
         .tip-icon {
-            font-size: 2em;
-            margin-right: 20px;
-            color: #4299e1;
-            min-width: 35px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 2px;
         }
         
-        /* BUTTON STYLES */
-        .download-btn {
-            background: linear-gradient(135deg, #2d3748, #4a5568);
+        .tip:nth-child(2) .tip-icon { color: #ef4444; }
+        .tip:nth-child(3) .tip-icon { color: var(--success-color); }
+        .tip:nth-child(4) .tip-icon { color: #8b5cf6; }
+        .tip:nth-child(5) .tip-icon { color: var(--warning-color); }
+        
+        .tip-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .tip-content {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Animasi khusus untuk tips */
+        @keyframes tipAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) rotate(2deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translateY(-5px) rotate(-1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0);
+            }
+        }
+        
+        .tip.animate {
+            animation: tipAnimation 0.6s ease-out forwards;
+        }
+        
+        /* Animasi khusus untuk Nusa Penida */
+        @keyframes nusaPenidaAnimation {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+        
+        .nusa-penida-section {
+            animation: nusaPenidaAnimation 2s ease-in-out;
+        }
+        
+        /* BUTTON */
+        .print-btn {
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 18px 40px;
-            border-radius: 16px;
-            font-size: 1.1em;
-            font-weight: 500;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            margin: 50px auto 25px;
+            margin: 40px auto 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(45, 55, 72, 0.25);
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
         
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(45, 55, 72, 0.35);
-            background: linear-gradient(135deg, #4a5568, #2d3748);
+        .print-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
         
-        .download-btn:active {
+        .print-btn:active {
             transform: translateY(0);
         }
         
-        .download-btn i {
-            margin-right: 12px;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 1000px) {
-            .header {
-                min-height: 350px;
+        /* RESPONSIVE - PERBAIKAN TAMBAHAN */
+        @media (max-width: 768px) {
+            body { 
+                padding: 10px;
+                font-size: 14px;
             }
             
-            .header h1 {
-                font-size: 2.8rem;
+            .content, .header { 
+                padding: 30px 20px; 
+            }
+            
+            .header h1 { 
+                font-size: 2.2rem; 
+                line-height: 1.2;
             }
             
             .header-subtitle {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                margin-bottom: 30px;
             }
             
-            .header-details {
-                gap: 20px;
+            .header-stats { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
-            .detail-item {
-                padding: 18px 22px;
-                min-width: 150px;
+            .stat-item {
+                padding: 15px;
             }
             
-            .detail-icon {
-                font-size: 2.2rem;
+            .day-header { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                margin-bottom: 20px;
             }
             
-            .content {
-                padding: 30px;
-            }
-            
-            .day-section {
-                padding: 30px;
-            }
-            
-            .day-number {
-                font-size: 3rem;
-                min-width: 60px;
+            .day-number { 
+                margin-bottom: 12px; 
+                font-size: 2.5rem;
             }
             
             .day-title h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
-            .time-blocks {
+            .time-block {
+                padding: 20px;
+            }
+            
+            .time-block h3 {
+                font-size: 1rem;
+            }
+            
+            .tips-grid { 
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .tip {
+                padding: 20px;
+            }
+            
+            .print-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
             }
         }
         
-        @media (max-width: 700px) {
-            .header {
-                min-height: 320px;
+        @media (max-width: 480px) {
+            .header-stats {
+                grid-template-columns: 1fr;
             }
             
             .header h1 {
-                font-size: 2.3rem;
-            }
-            
-            .header-details {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-            
-            .detail-item {
-                width: 100%;
-                flex-direction: row;
-                justify-content: flex-start;
-                padding: 18px;
-            }
-            
-            .detail-icon {
-                margin-bottom: 0;
-                margin-right: 18px;
-                font-size: 2rem;
-            }
-            
-            .day-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .day-number {
-                margin-bottom: 15px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline {
-                padding-left: 30px;
-            }
-            
-            .timeline::before {
-                width: 5px;
-            }
-        }
-        
-        /* Print styles */
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: none;
-                background: white;
-            }
-            
-            .download-btn {
-                display: none !important;
+                font-size: 1.8rem;
             }
             
             .day-section {
-                break-inside: avoid;
+                padding: 30px 20px;
+            }
+            
+            .day-title h2 {
+                font-size: 1.3rem;
+            }
+            
+            .time-block li {
+                font-size: 0.9rem;
+            }
+            
+            .tips-section h2 {
+                font-size: 1.5rem;
             }
         }
+        
+        /* Touch improvements for mobile */
+        @media (hover: none) {
+            .time-block:hover, .tip:hover, .stat-item:hover {
+                transform: none;
+            }
+            
+            .print-btn:hover {
+                transform: none;
+                background: var(--primary-color);
+            }
+        }
+        
+        /* PRINT STYLES */
+        @media print {
+            body { 
+                background: white; 
+                padding: 0;
+                font-size: 12px;
+            }
+            
+            .container { 
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .print-btn { 
+                display: none !important; 
+            }
+            
+            .day-section { 
+                break-inside: avoid;
+                box-shadow: none;
+                margin-bottom: 40px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+        }
+        
+        /* SUBTLE ANIMATIONS */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .day-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .day-section:nth-child(2) { animation-delay: 0.1s; }
+        .day-section:nth-child(3) { animation-delay: 0.2s; }
+        .day-section:nth-child(4) { animation-delay: 0.3s; }
+        .day-section:nth-child(5) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-content">
-                <h1 class="floating">🌴 Bali Adventure 🌺</h1>
-                <p class="header-subtitle">Melali dibali dilangsungin aja ya geyzt</p>
+            <h1>Bali Adventure</h1>
+            <p class="header-subtitle">Melali dibali dilangsungin aja ya geyzt</p>
+            
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-icon">📅</span>
+                    <div class="stat-label">Durasi</div>
+                    <div class="stat-value">4 Hari 3 Malam</div>
+                </div>
                 
-                <div class="header-details">
-                    <div class="detail-item">
-                        <div class="detail-icon">📅</div>
-                        <div class="detail-text">
-                            <div class="detail-label">DURASI</div>
-                            <div class="detail-value">4 Hari 3 Malam</div>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">🌞</div>
-                        <div class="detail-text">
-                            <div class="detail-label">PERIODE</div>
-                            <div class="detail-value">Sabtu - Rabu</div>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">✈️</div>
-                        <div class="detail-text">
-                            <div class="detail-label">PENERBANGAN BALIK</div>
-                            <div class="detail-value">Rabu 19:00 (DPS)</div>
-                        </div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🌞</span>
+                    <div class="stat-label">Periode</div>
+                    <div class="stat-value">Sabtu - Rabu</div>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-icon">✈️</span>
+                    <div class="stat-label">Berangkat</div>
+                    <div class="stat-value">Sabtu 15:45 (JKT)</div>
+                </div>
 
-                    <div class="detail-item">
-                        <div class="detail-icon">✈️</div>
-                        <div class="detail-text">
-                            <div class="detail-label">PENERBANGAN BERANGKAT</div>
-                            <div class="detail-value">Sabtu 15:45 (JKT)</div>
-                        </div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-icon">✈️</span>
+                    <div class="stat-label">Pulang</div>
+                    <div class="stat-value">Rabu 19:00 (DPS)</div>
                 </div>
             </div>
         </div>
         
         <div class="content">
-            <div class="timeline">
-                <div class="day-section day1">
-                    <div class="day-header">
-                        <div class="day-number">1</div>
-                        <div class="day-title">
-                            <h2>📍 Hari 1: Minggu | Ubud Culture & Chill</h2>
-                            <div class="day-subtitle">Budaya & Relaksasi</div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-blocks">
-                        <div class="time-block morning">
-                            <h3><span>☀️</span>Pagi (07:00 - 09:00)</h3>
-                            <ul>
-                                <li>Sarapan di <strong>Gigi Susu</strong></li>
-                                <li>Target selesai sekitar jam 9 pagi</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block afternoon">
-                            <h3><span>⛰️</span>Siang & Sore (09:00 - 17:00)</h3>
-                            <ul>
-                                <li><strong>Perjalanan ke Kintamani</strong> (≈1.5 jam)</li>
-                                <li><strong>Makan Siang di El Lago</strong> dengan view Danau Batur</li>
-                                <li><strong>Turun ke Ubud</strong> (≈1 jam)</li>
-                                <li><strong>Eksplor Ubud:</strong> Monkey Forest, Pasar Seni, atau Tegenungan Waterfall</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block evening">
-                            <h3><span>🌙</span>Malam (19:00 onwards)</h3>
-                            <ul>
-                                <li>Makan malam cozy di Ubud</li>
-                                <li>Nikmati suasana Ubud yang tenang</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="highlight">
-                        ⚠️ <strong>PENTING:</strong> WAJIB RESERVASI El Lago untuk view terbaik!
-                    </div>
-                    
-                    <div class="accommodation">
-                        <strong>🛌 Menginap di Ubud</strong>
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">1</div>
+                    <div class="day-title">
+                        <h2>Hari 1: Minggu | Ubud Culture & Chill</h2>
+                        <div class="day-subtitle">Budaya & Relaksasi</div>
                     </div>
                 </div>
                 
-                <div class="day-section day2">
-                    <div class="day-header">
-                        <div class="day-number">2</div>
-                        <div class="day-title">
-                            <h2>🚗 Hari 2: Senin | Volcano Views & Sunset Cliffs</h2>
-                            <div class="day-subtitle">Gunung Berapi & Tebing Sunset</div>
-                        </div>
+                <div class="time-blocks">
+                    <div class="time-block">
+                        <h3><span class="time-icon">☀️</span>Pagi (07:00 - 09:00)</h3>
+                        <ul>
+                            <li>Sarapan di <strong>Gigi Susu</strong></li>
+                            <li>Target selesai sekitar jam 9 pagi</li>
+                        </ul>
                     </div>
                     
-                    <div class="time-blocks">
-                        <div class="time-block morning">
-                            <h3><span>☀️</span>Pagi (08:00 - 10:00)</h3>
-                            <ul>
-                                <li>Sarapan di Ubud</li>
-                                <li>Check-out dari penginapan</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block afternoon">
-                            <h3><span>🌅</span>Siang (10:00 - 16:00)</h3>
-                            <ul>
-                                <li><strong>Perjalanan ke Uluwatu</strong> (≈2.5-3 jam, bisa macet)</li>
-                                <li><strong>Rekomendasi:</strong> Jelajahi Padang Padang Beach atau Suluban Beach</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block evening">
-                            <h3><span>🌇</span>Sunset & Malam (17:00 - 20:00)</h3>
-                            <ul>
-                                <li>Kunjungi <strong>Pura Uluwatu</strong></li>
-                                <li>Nonton <strong>Tari Kecak</strong> (mulai jam 18:00)</li>
-                                <li>Main <strong>Game Ketapel</strong> di Suluban/Single Fin</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block night">
-                            <h3><span>🌙</span>Malam (20:30 onwards)</h3>
-                            <ul>
-                                <li><strong>Perjalanan ke Sanur/Jimbaran</strong> (≈1-1.5 jam)</li>
-                                <li>Check-in penginapan untuk istirahat</li>
-                            </ul>
-                        </div>
+                    <div class="time-block">
+                        <h3><span class="time-icon">⛰️</span>Siang & Sore (09:00 - 17:00)</h3>
+                        <ul>
+                            <li><strong>Perjalanan ke Kintamani</strong> (≈1.5 jam)</li>
+                            <li><strong>Makan Siang di El Lago</strong> dengan view Danau Batur</li>
+                            <li><strong>Turun ke Ubud</strong> (≈1 jam)</li>
+                            <li><strong>Eksplor Ubud:</strong> Monkey Forest, Pasar Seni, atau Tegenungan Waterfall</li>
+                        </ul>
                     </div>
                     
-                    <div class="accommodation">
-                        <strong>🛌 Menginap di Sanur</strong> (direkomendasikan untuk akses pelabuhan)
+                    <div class="time-block">
+                        <h3><span class="time-icon">🌙</span>Malam (19:00 onwards)</h3>
+                        <ul>
+                            <li>Makan malam cozy di Ubud</li>
+                            <li>Nikmati suasana Ubud yang tenang</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div class="day-section day3">
-                    <div class="day-header">
-                        <div class="day-number">3</div>
-                        <div class="day-title">
-                            <h2>🏝️ Hari 3: Selasa | Nusa Penida Adventure</h2>
-                            <div class="day-subtitle">Petualangan Pulau</div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-blocks">
-                        <div class="time-block morning">
-                            <h3><span>🌅</span>Pagi Buta (06:30 - 07:30)</h3>
-                            <ul>
-                                <li>Berangkat ke <strong>Pelabuhan Sanur</strong></li>
-                                <li>Naik <strong>kapal pertama (≈07:30)</strong> ke Nusa Penida</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block afternoon">
-                            <h3><span>☀️</span>Siang (08:30 - 16:00)</h3>
-                            <ul>
-                                <li><strong>Kelingking Beach</strong> (foto dari atas tebing)</li>
-                                <li><strong>Angel's Billabong & Broken Beach</strong></li>
-                                <li><strong>Crystal Bay</strong> (snorkeling/relaksasi)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block evening">
-                            <h3><span>🌇</span>Sore (16:00 - 17:00)</h3>
-                            <ul>
-                                <li>Naik <strong>kapal terakhir</strong> kembali ke Pelabuhan Sanur</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block night">
-                            <h3><span>🌙</span>Malam (18:00 onwards)</h3>
-                            <ul>
-                                <li>Makan malam dan <strong>istirahat total</strong></li>
-                                <li>Hari ini sangat melelahkan</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="highlight">
-                        💡 <strong>Saran:</strong> Sewa driver lokal di Penida untuk efisiensi
-                    </div>
-                    
-                    <div class="accommodation">
-                        <strong>🛌 Menginap di Sanur</strong>
+                <div class="highlight">
+                    <i class="fas fa-exclamation-triangle highlight-icon"></i>
+                    <div>
+                        <strong>PENTING:</strong> WAJIB RESERVASI El Lago untuk view terbaik!
                     </div>
                 </div>
                 
-                <div class="day-section day4">
-                    <div class="day-header">
-                        <div class="day-number">4</div>
-                        <div class="day-title">
-                            <h2>✈️ Hari 4: Rabu | Souvenirs & Flight Home</h2>
-                            <div class="day-subtitle">Belanja & Pulang</div>
-                        </div>
+                <div class="accommodation">
+                    🛌 Menginap di Ubud
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">2</div>
+                    <div class="day-title">
+                        <h2>Hari 2: Senin | Volcano Views & Sunset Cliffs</h2>
+                        <div class="day-subtitle">Gunung Berapi & Tebing Sunset</div>
+                    </div>
+                </div>
+                
+                <div class="time-blocks">
+                    <div class="time-block">
+                        <h3><span class="time-icon">☀️</span>Pagi (08:00 - 10:00)</h3>
+                        <ul>
+                            <li>Sarapan di Ubud</li>
+                            <li>Check-out dari penginapan</li>
+                        </ul>
                     </div>
                     
-                    <div class="time-blocks">
-                        <div class="time-block morning">
-                            <h3><span>☀️</span>Pagi (08:00 - 11:00)</h3>
-                            <ul>
-                                <li>Sarapan santai</li>
-                                <li>Packing dan check-out dari hotel</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block afternoon">
-                            <h3><span>🛍️</span>Siang (11:00 - 15:00)</h3>
-                            <ul>
-                                <li>Eksplor <strong>Seminyak/Canggu</strong> untuk beli oleh-oleh</li>
-                                <li>Cafe hopping dan makan siang</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block evening">
-                            <h3><span>🚗</span>Sore (15:30 - 16:30)</h3>
-                            <ul>
-                                <li><strong>Perjalanan ke Bandara DPS</strong> (≈45-60 menit)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="time-block night">
-                            <h3><span>✈️</span>Malam</h3>
-                            <ul>
-                                <li><strong>Tiba di bandara maksimal 17:00</strong> untuk penerbangan 19:00</li>
-                                <li>Check-in, beli oleh-oleh akhir, pulang!</li>
-                            </ul>
-                        </div>
+                    <div class="time-block">
+                        <h3><span class="time-icon">🌅</span>Siang (10:00 - 16:00)</h3>
+                        <ul>
+                            <li><strong>Perjalanan ke Uluwatu</strong> (≈2.5-3 jam, bisa macet)</li>
+                            <li><strong>Rekomendasi:</strong> Jelajahi Padang Padang Beach atau Suluban Beach</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <h3><span class="time-icon">🌇</span>Sunset & Malam (17:00 - 20:30)</h3>
+                        <ul>
+                            <li>Kunjungi <strong>Pura Uluwatu</strong></li>
+                            <li>Nonton <strong>Tari Kecak</strong> (mulai jam 18:00)</li>
+                            <li>Main <strong>Game Ketapel</strong> di Suluban/Single Fin</li>
+                            <li><strong>Perjalanan ke Sanur/Jimbaran</strong> (≈1-1.5 jam)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accommodation">
+                    🛌 Menginap di Sanur (direkomendasikan untuk akses pelabuhan)
+                </div>
+            </div>
+            
+            <div class="day-section nusa-penida-section">
+                <div class="day-header">
+                    <div class="day-number">3</div>
+                    <div class="day-title">
+                        <h2>Hari 3: Selasa | Nusa Penida Adventure</h2>
+                        <div class="day-subtitle">Petualangan Pulau</div>
+                    </div>
+                </div>
+                
+                <div class="time-blocks">
+                    <div class="time-block">
+                        <h3><span class="time-icon">🌅</span>Pagi Buta (06:30 - 08:30)</h3>
+                        <ul>
+                            <li>Berangkat ke <strong>Pelabuhan Sanur</strong></li>
+                            <li>Naik <strong>kapal pertama (≈07:30)</strong> ke Nusa Penida</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <h3><span class="time-icon">☀️</span>Siang (08:30 - 16:00)</h3>
+                        <ul>
+                            <li><strong>Kelingking Beach</strong> (foto dari atas tebing)</li>
+                            <li><strong>Angel's Billabong & Broken Beach</strong></li>
+                            <li><strong>Crystal Bay</strong> (snorkeling/relaksasi)</li>
+                            <li>Naik <strong>kapal terakhir</strong> kembali ke Pelabuhan Sanur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <h3><span class="time-icon">🌙</span>Malam (18:00 onwards)</h3>
+                        <ul>
+                            <li>Makan malam dan <strong>istirahat total</strong></li>
+                            <li>Hari ini sangat melelahkan</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <i class="fas fa-lightbulb highlight-icon"></i>
+                    <div>
+                        <strong>Saran:</strong> Sewa driver lokal di Penida untuk efisiensi
+                    </div>
+                </div>
+                
+                <div class="accommodation">
+                    🛌 Menginap di Sanur
+                </div>
+            </div>
+            
+            <div class="day-section">
+                <div class="day-header">
+                    <div class="day-number">4</div>
+                    <div class="day-title">
+                        <h2>Hari 4: Rabu | Souvenirs & Flight Home</h2>
+                        <div class="day-subtitle">Belanja & Pulang</div>
+                    </div>
+                </div>
+                
+                <div class="time-blocks">
+                    <div class="time-block">
+                        <h3><span class="time-icon">☀️</span>Pagi (08:00 - 11:00)</h3>
+                        <ul>
+                            <li>Sarapan santai</li>
+                            <li>Packing dan check-out dari hotel</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <h3><span class="time-icon">🛍️</span>Siang (11:00 - 15:30)</h3>
+                        <ul>
+                            <li>Eksplor <strong>Seminyak/Canggu</strong> untuk beli oleh-oleh</li>
+                            <li>Cafe hopping dan makan siang</li>
+                            <li><strong>Perjalanan ke Bandara DPS</strong> (≈45-60 menit)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="time-block">
+                        <h3><span class="time-icon">✈️</span>Malam</h3>
+                        <ul>
+                            <li><strong>Tiba di bandara maksimal 17:00</strong> untuk penerbangan 19:00</li>
+                            <li>Check-in, beli oleh-oleh akhir, pulang!</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
             <div class="tips-section">
-                <h2><span>📌</span> Tips Penting & Catatan</h2>
+                <h2><i class="fas fa-lightbulb"></i> Tips Penting & Catatan</h2>
                 
                 <div class="tips-grid">
                     <div class="tip">
-                        <div class="tip-icon">🚗</div>
-                        <div>
-                            <strong>Transportasi:</strong> Sangat disarankan menyewa driver penuh-hari untuk Hari Senin. Ini akan menghemat tenaga dan waktu yang berharga.
+                        <div class="tip-header">
+                            <i class="fas fa-car tip-icon"></i>
+                            <div class="tip-title">Transportasi</div>
+                        </div>
+                        <div class="tip-content">
+                            Sangat disarankan menyewa driver penuh-hari untuk Hari Senin. Ini akan menghemat tenaga dan waktu yang berharga.
                         </div>
                     </div>
                     
                     <div class="tip">
-                        <div class="tip-icon">🍽️</div>
-                        <div>
-                            <strong>El Lago:</strong> WAJIB melakukan reservasi online sebelumnya untuk mendapatkan meja dengan view terbaik.
+                        <div class="tip-header">
+                            <i class="fas fa-utensils tip-icon"></i>
+                            <div class="tip-title">El Lago</div>
+                        </div>
+                        <div class="tip-content">
+                            WAJIB melakukan reservasi online sebelumnya untuk mendapatkan meja dengan view terbaik.
                         </div>
                     </div>
                     
                     <div class="tip">
-                        <div class="tip-icon">🏝️</div>
-                        <div>
-                            <strong>Nusa Penida:</strong> Booking tiket kapal pulang-pergi Sanur-Penida online sebelumnya. Siapkan obat mabuk perjalanan.
+                        <div class="tip-header">
+                            <i class="fas fa-island-tropical tip-icon"></i>
+                            <div class="tip-title">Nusa Penida</div>
+                        </div>
+                        <div class="tip-content">
+                            Booking tiket kapal pulang-pergi Sanur-Penida online sebelumnya. Siapkan obat mabuk perjalanan.
                         </div>
                     </div>
                     
                     <div class="tip">
-                        <div class="tip-icon">⏰</div>
-                        <div>
-                            <strong>Waktu:</strong> Selalu buffer waktu perjalanan lebih longgar. Lalu lintas di Bali sangat tidak terduga.
+                        <div class="tip-header">
+                            <i class="fas fa-clock tip-icon"></i>
+                            <div class="tip-title">Waktu</div>
+                        </div>
+                        <div class="tip-content">
+                            Selalu buffer waktu perjalanan lebih longgar. Lalu lintas di Bali sangat tidak terduga.
                         </div>
                     </div>
                     
                     <div class="tip">
-                        <div class="tip-icon">✈️</div>
-                        <div>
-                            <strong>Bandara:</strong> Pastikan tiba di bandara minimal 2 jam sebelum penerbangan internasional.
+                        <div class="tip-header">
+                            <i class="fas fa-plane tip-icon"></i>
+                            <div class="tip-title">Bandara</div>
+                        </div>
+                        <div class="tip-content">
+                            Pastikan tiba di bandara minimal 2 jam sebelum penerbangan internasional.
                         </div>
                     </div>
                 </div>
             </div>
             
-            <button class="download-btn" onclick="window.print()" id="downloadBtn">
-                <i class="fas fa-print"></i> Print Itinerary
+            <button class="print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i>
+                Print Itinerary
             </button>
         </div>
     </div>
 
     <script>
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add hover animation to day sections
-            const daySections = document.querySelectorAll('.day-section');
-            daySections.forEach(section => {
-                section.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px)';
-                    this.style.boxShadow = '0 20px 45px rgba(0, 0, 0, 0.15)';
-                });
-                
-                section.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.1)';
-                });
-            });
-            
-            // Add animation to time blocks on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            const timeBlocks = document.querySelectorAll('.time-block');
-            timeBlocks.forEach((block, index) => {
-                block.style.opacity = '0';
-                block.style.transform = 'translateY(20px)';
-                block.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(block);
-            });
-            
-            // Add animation to tips
+        // Animasi untuk tips
+        function animateTips() {
             const tips = document.querySelectorAll('.tip');
             tips.forEach((tip, index) => {
-                tip.style.opacity = '0';
-                tip.style.transform = 'translateY(20px)';
-                tip.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(tip);
+                setTimeout(() => {
+                    tip.classList.add('animate');
+                }, index * 200);
             });
-        });
+        }
+
+        // Simple scroll animations
+        const observeElements = () => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            
+                            // Jika elemen yang terlihat adalah tips-section, jalankan animasi tips
+                            if (entry.target.classList.contains('tips-section')) {
+                                animateTips();
+                            }
+                        }
+                    });
+                },
+                { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+            );
+
+            document.querySelectorAll('.day-section, .tips-section').forEach((el) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        };
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', observeElements);
     </script>
 </body>
 </html>
