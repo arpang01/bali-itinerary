@@ -103,10 +103,12 @@
             border-radius: var(--radius-md);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.2s ease;
+            cursor: pointer;
         }
         
         .stat-item:hover {
             transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         .stat-icon {
@@ -441,6 +443,78 @@
             transform: translateY(0);
         }
         
+        /* Modal styles untuk tiket PDF */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 70vh;
+            border: none;
+        }
+        
         /* RESPONSIVE - PERBAIKAN TAMBAHAN */
         @media (max-width: 768px) {
             body { 
@@ -508,6 +582,15 @@
                 justify-content: center;
                 padding: 14px 20px;
             }
+            
+            .modal-content {
+                width: 95%;
+                height: 85vh;
+            }
+            
+            .pdf-viewer {
+                height: calc(85vh - 70px);
+            }
         }
         
         @media (max-width: 480px) {
@@ -533,6 +616,10 @@
             
             .tips-section h2 {
                 font-size: 1.5rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.2rem;
             }
         }
         
@@ -574,6 +661,10 @@
             .header {
                 padding: 40px 20px;
             }
+            
+            .modal {
+                display: none !important;
+            }
         }
         
         /* SUBTLE ANIMATIONS */
@@ -605,6 +696,12 @@
             <p class="header-subtitle">Melali dibali dilangsungin aja ya geyzt</p>
             
             <div class="header-stats">
+                <div class="stat-item" onclick="showTicket('berangkat')">
+                    <span class="stat-icon">✈️</span>
+                    <div class="stat-label">Berangkat</div>
+                    <div class="stat-value">Sabtu 15:45 (JKT)</div>
+                </div>
+                
                 <div class="stat-item">
                     <span class="stat-icon">📅</span>
                     <div class="stat-label">Durasi</div>
@@ -616,14 +713,8 @@
                     <div class="stat-label">Periode</div>
                     <div class="stat-value">Sabtu - Rabu</div>
                 </div>
-                
-                <div class="stat-item">
-                    <span class="stat-icon">✈️</span>
-                    <div class="stat-label">Berangkat</div>
-                    <div class="stat-value">Sabtu 15:45 (JKT)</div>
-                </div>
 
-                <div class="stat-item">
+                <div class="stat-item" onclick="showTicket('pulang')">
                     <span class="stat-icon">✈️</span>
                     <div class="stat-label">Pulang</div>
                     <div class="stat-value">Rabu 19:00 (DPS)</div>
@@ -872,6 +963,17 @@
         </div>
     </div>
 
+    <!-- Modal untuk menampilkan tiket PDF -->
+    <div class="modal" id="ticketModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tiket Penerbangan</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <iframe id="pdfViewer" class="pdf-viewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
     <script>
         // Animasi untuk tips
         function animateTips() {
@@ -909,6 +1011,54 @@
                 observer.observe(el);
             });
         };
+
+        // Fungsi untuk menampilkan tiket PDF
+        function showTicket(type) {
+            const modal = document.getElementById('ticketModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            // Ganti dengan path file PDF Anda
+            const pdfPath = type === 'berangkat' 
+                ? 'tiket-berangkat.pdf' 
+                : 'tiket-pulang.pdf';
+                
+            // Ganti judul modal sesuai tiket
+            modalTitle.textContent = type === 'berangkat' 
+                ? 'Tiket Penerbangan Berangkat' 
+                : 'Tiket Penerbangan Pulang';
+            
+            // Set sumber PDF
+            pdfViewer.src = pdfPath;
+            
+            // Tampilkan modal
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Mencegah scroll di latar belakang
+        }
+
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            const modal = document.getElementById('ticketModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            
+            modal.style.display = 'none';
+            pdfViewer.src = ''; // Hentikan pemuatan PDF
+            document.body.style.overflow = 'auto'; // Izinkan scroll kembali
+        }
+
+        // Tutup modal jika diklik di luar konten
+        document.getElementById('ticketModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Tutup modal dengan tombol Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', observeElements);
